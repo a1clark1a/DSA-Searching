@@ -1,7 +1,5 @@
 //Binary search version of indexOf
 
-
-
 //Best case is O(1)
 
 /*With each iteration, you can cut the area you have to search in half; 
@@ -23,19 +21,25 @@ function binarySearch(array, value, start, end){
     //Next, you pick an index in the middle of the start and end indices and check the item at that index.
     const index = Math.floor((start + end) / 2);
     const item = array[index]
-    
+    console.log('index ', index)
     console.log(start, end);
+    console.log('value ', item)
     //If the item is equal to the value then you have found the correct index.
     if(item == value){
+        console.log('index found ', index)
         return index;
     }
     
     /*Otherwise, you recursively search in either the left half or right half of the sorted array depending on
      whether the item was less than or greater than the value. */
     else if(item < value){
+        console.log('right search')
         return binarySearch(array, value, index + 1, end);
     }
     else if(item > value){
+        console.log('left search')
         return binarySearch(array, value, start, index -1);
     }
 }
+
+module.exports = binarySearch;

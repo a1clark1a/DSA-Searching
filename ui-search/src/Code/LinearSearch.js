@@ -12,3 +12,4 @@ function indexOf(array, value){
     return -1;
 }
 
+export default indexOf;
